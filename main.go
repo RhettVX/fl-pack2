@@ -15,10 +15,10 @@ func main() {
 		log.Fatal("Missing arguments")
 	}
 
-	for _, a := range os.Args[1:] {
+	for _, arg := range os.Args[1:] {
 
 		// Grab absolute path
-		path, err := filepath.Abs(a)
+		path, err := filepath.Abs(arg)
 		utils.Check(err)
 
 		// Check if dir or file
@@ -27,18 +27,16 @@ func main() {
 
 		switch mode := file.Mode(); {
 
+		// Pack folder to .pack2
 		case mode.IsDir():
 			var p packs.Pack2
-			p.LoadFromDir(a)
-			p.Write()
+			p.LoadFromDir(path)
+			p.WritePack2("Packed", "Custom_x64_0")
 
-			// for _, x := range p.Assets {
-			// 	println(x.Name)
-			// }
-
+		// Unpack .pack2
 		case mode.IsRegular():
 			var p packs.Pack2
-			p.LoadFromFile(a)
+			p.LoadFromFile(path)
 			p.ApplyHash()
 			p.Unpack("Unpacked")
 		}
