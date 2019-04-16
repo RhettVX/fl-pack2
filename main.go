@@ -31,6 +31,7 @@ func main() {
 		case mode.IsDir():
 			var p packs.Pack2
 			p.LoadFromDir(path)
+			p.SortAssets()
 			p.WritePack2("Packed", "Custom_x64_0")
 
 		// Unpack .pack2
