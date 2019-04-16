@@ -1,3 +1,3 @@
 # fl-pack2
 
-Tool to unpack Forgelight .pack2 files.
+Tool to unpack and pack Forgelight .pack2 files.
