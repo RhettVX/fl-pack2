@@ -32,7 +32,7 @@ func main() {
 			var p packs.Pack2
 			p.LoadFromDir(path)
 			p.SortAssets()
-			p.WritePack2("Packed", "Custom_x64_0")
+			p.WritePack2("Packed", "assets_x64_0")
 
 		// Unpack .pack2
 		case mode.IsRegular():
