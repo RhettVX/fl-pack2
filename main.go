@@ -32,13 +32,13 @@ func main() {
 			var p packs.Pack2
 			p.LoadFromDir(path)
 			p.SortAssets()
-			p.WritePack2("Packed", "assets_x64_0")
+			p.WritePack2("Packed", "custom_x64_0")
 
 		// Unpack .pack2
 		case mode.IsRegular():
 			var p packs.Pack2
 			p.LoadFromFile(path)
-			p.ApplyHash()
+			// p.ApplyHash()
 			p.Unpack("Unpacked")
 		}
 	}
